@@ -5,7 +5,14 @@ createApp({
         return {
             title: 'records',
             records: '',
-            selected: null
+            selected: null,
+            newRecord: {
+                title: '',
+                author: '',
+                year: null,
+                poster: '',
+                genre: null
+            }
         }
     },
 
@@ -14,13 +21,32 @@ createApp({
         selectIndex(index) {
             this.selected = index;
             console.log(this.selected);
+        },
+
+        addRecord() {
+            //console.log(this.newRecord);
+
+            axios
+                .request({
+                    url: 'server.php',
+                    method: 'POST',
+                    data: {
+                        newRecord: this.newRecord
+                    },
+                    headers: { 'Content-Type': 'multipart/form-data' }
+
+                })
+                .then(response => {
+                    console.log(this.newRecord);
+                    this.records = response.data;
+                })
         }
 
     },
     mounted() {
         axios
             .request({
-                url: 'records.json',
+                url: 'server.php',
                 methods: 'GET'
             })
 

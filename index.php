@@ -19,12 +19,19 @@
         <header>
             <div class="container">
                 <div class="row">
-                    <h1 class="text-white">{{title}}</h1>
+                    <div class="title w-50">
+                        <h1 class="mt-3 text-white">{{title}}</h1>
+
+                    </div>
+                    <div class="add w-50 text-end">
+                        <button class="mt-3 btn btn-secondary" type="button" data-bs-toggle="offcanvas" data-bs-target="#staticBackdrop" aria-controls="staticBackdrop">
+                            ADD RECORD </button>
+                    </div>
                 </div>
             </div>
         </header>
 
-        <main>
+        <main class="mt-5 ">
 
             <div class="container position-relative">
                 <div class="row g-5">
@@ -73,6 +80,34 @@
                                 <h3 class="text-warning">{{records[selected].title}}</h3>
                                 <h6>{{records[selected].author}}</h6>
                                 <p>{{records[selected].year}}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+
+
+                    <div class="offcanvas offcanvas-start bg-dark text-white" data-bs-backdrop="static" tabindex="-1" id="staticBackdrop" aria-labelledby="staticBackdropLabel">
+                        <div class="offcanvas-header">
+                            <h5 class="offcanvas-title" id="staticBackdropLabel">ADD RECORD</h5>
+                            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                        </div>
+                        <div class="offcanvas-body">
+                            <div class=" w-75 m-auto add_album d-flex flex-column gap-2">
+                                <input v-model="newRecord.title" type="text" placeholder="add record name" name="newRecordName" id="newRecordName">
+                                <input v-model="newRecord.poster" type="text" placeholder="add record poster link" name="newRecordPoster" id="newRecordPoster">
+                                <input v-model="newRecord.author" type="text" placeholder="add record author" name="newRecordAuthor" id="newRecordAuthor">
+                                <input v-model="newRecord.year" type="number" placeholder="add record year" name="newRecordYear" id="newRecordYear">
+                                <select v-model="newRecord.genre" class="form-select" name="recordGenere" id="recordGenere">
+                                    <option selected disabled>Select Record Genre</option>
+                                    <option value="Metal">Metal</option>
+                                    <option value="Rock">Rock</option>
+                                    <option value="Pop">Pop</option>
+                                    <option value="Electronic">Electronic</option>
+                                    <option value="Disco">Disco</option>
+                                </select>
+                                <button class="btn btn-primary" type="submit" @click.prevent="addRecord()">ADD</button>
                             </div>
                         </div>
                     </div>
