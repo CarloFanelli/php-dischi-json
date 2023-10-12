@@ -2,7 +2,8 @@ const { createApp } = Vue
 createApp({
     data() {
         return {
-            title: 'records'
+            title: 'records',
+            records: ''
         }
     },
 
@@ -10,6 +11,11 @@ createApp({
 
     },
     mounted() {
-
+        axios
+            .get('server.php')
+            .then(response => {
+                console.log(response.data);
+                this.records = response.data;
+            })
     }
 }).mount('#app')
