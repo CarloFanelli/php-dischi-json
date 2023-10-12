@@ -39,6 +39,15 @@ createApp({
                 .then(response => {
                     console.log(this.newRecord);
                     this.records = response.data;
+
+                    this.newRecord = {
+                        title: '',
+                        author: '',
+                        year: null,
+                        poster: '',
+                        genre: null
+                    }
+
                 })
         }
 
