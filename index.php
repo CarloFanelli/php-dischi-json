@@ -60,15 +60,19 @@
 
                 <div v-if="selected !== null" class="trans-50  row h-100 w-100 position-absolute top-50 start-50 translate-middle">
                     <div class="col-8 m-auto">
-                        <div class="card card bg-secondary text-white text-center p-2">
-
-                            <div class="card-img-top">
-                                <img class="img-fluid" :src="records[selected].poster" alt="">
+                        <div class="card card bg-secondary text-white text-center p-4">
+                            <div @click="selected = null" class="close">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16">
+                                    <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z" />
+                                </svg>
+                            </div>
+                            <div class="card-img-top p-1">
+                                <img class="img-fluid rounded-5" :src="records[selected].poster" alt="">
                             </div>
                             <div class="card-body  px-0">
-                                <h5 class="text-warning">{{records[selected].title}}</h5>
-                                <p>{{records[selected].author}}</p>
-                                <small>{{records[selected].year}}</small>
+                                <h3 class="text-warning">{{records[selected].title}}</h3>
+                                <h6>{{records[selected].author}}</h6>
+                                <p>{{records[selected].year}}</p>
                             </div>
                         </div>
                     </div>
