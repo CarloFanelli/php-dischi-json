@@ -12,9 +12,13 @@ createApp({
     },
     mounted() {
         axios
-            .get('server.php')
+            .request({
+                url: 'records.json',
+                methods: 'GET'
+            })
+
             .then(response => {
-                console.log(response.data);
+                //console.log(response.data);
                 this.records = response.data;
             })
     }

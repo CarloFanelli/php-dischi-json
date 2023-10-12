@@ -27,14 +27,14 @@
         <main>
 
             <div class="container">
-                <div class="row">
-                    <div class="col-4" v-for="disc in records">
-                        <div class="card">
+                <div class="row g-5">
+                    <div class="col-4 mb-3" v-for="disc in records">
+                        <div class="card bg-secondary text-white text-center p-2 h-100">
                             <div class="card-img-top">
                                 <img class="img-fluid" :src="disc.poster" alt="">
                             </div>
-                            <div class="card-body text-center">
-                                <h5>{{disc.title}}</h5>
+                            <div class="card-body  px-0">
+                                <h5 class="text-warning">{{disc.title}}</h5>
                                 <p>{{disc.author}}</p>
                                 <small>{{disc.year}}</small>
                             </div>
