@@ -1,13 +1,20 @@
 const { createApp } = Vue
+
 createApp({
     data() {
         return {
             title: 'records',
-            records: ''
+            records: '',
+            selected: null
         }
     },
 
     methods: {
+
+        selectIndex(index) {
+            this.selected = index;
+            console.log(this.selected);
+        }
 
     },
     mounted() {
@@ -18,7 +25,7 @@ createApp({
             })
 
             .then(response => {
-                //console.log(response.data);
+                console.log(response.data);
                 this.records = response.data;
             })
     }
